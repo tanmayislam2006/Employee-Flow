@@ -74,7 +74,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    googleLogin().then((result) => {
+    googleLogin().then(async(result) => {
       if (result.user) {
         const user = result.user;
         const profileInfo = {
@@ -89,8 +89,8 @@ const Login = () => {
           creationTime: user.metadata.creationTime,
           lastSignInTime: user.metadata.lastSignInTime,
         };
-        axiosInstance.post("/register", { profileInfo });
-        refetchUserData();
+        await axiosInstance.post("/register", { profileInfo });
+        await refetchUserData();
         navigate(location?.state || "/");
       }
 
@@ -107,6 +107,7 @@ const Login = () => {
           name="email"
           type="email"
           placeholder="Email"
+          defaultValue={"admin@gmail.com"}
           className="w-full px-4 py-3 rounded-lg border border-primary/20 focus:outline-none focus:border-primary"
           required
         />
@@ -123,6 +124,7 @@ const Login = () => {
             id="password"
             name="password"
             placeholder="Enter your password"
+            defaultValue={"123456Aa@"}
             className="w-full px-4 py-3 rounded-lg border border-primary/20 focus:outline-none focus:border-primary"
             required
           />
