@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router";
@@ -13,6 +13,21 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // 🆕 Show alert for admin credentials on mount
+  useEffect(() => {
+    Swal.fire({
+      title: "Admin Login Info",
+      html: `
+        <p><strong>Email:</strong> admin@gmail.com</p>
+        <p><strong>Password:</strong> 123456Aa@</p>
+        <p style="color:gray; font-size:14px;">Already filled in the form for your convenience.</p>
+      `,
+      icon: "info",
+      confirmButtonColor: "#00BFB2",
+    });
+  }, []);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -74,7 +89,7 @@ const Login = () => {
   };
 
   const handleGoogleLogin = () => {
-    googleLogin().then(async(result) => {
+    googleLogin().then(async (result) => {
       if (result.user) {
         const user = result.user;
         const profileInfo = {
@@ -97,6 +112,7 @@ const Login = () => {
       toast.success("Login successful!");
     });
   };
+
   return (
     <div className="max-w-md w-full border-2 border-primary/20 rounded-2xl shadow-lg p-8 flex flex-col items-center">
       <h2 className="text-2xl font-bold text-primary mb-6">
