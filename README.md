@@ -57,7 +57,6 @@ admin@gmail.com
 - **Responsive UI**: Optimized for desktop, tablet, and mobile.
 - **Secure Auth**: Firebase authentication (email/password & Google).
 - **Modern UI/UX**: Tailwind CSS, DaisyUI, and Framer Motion for smooth experience.
-- **Notifications**: Toasts and alerts for all major actions.
 - **Pagination & Search**: Efficient data browsing for large teams.
 
 ---
