@@ -9,7 +9,6 @@ const Contact = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const message = e.target.message.value;
-    // Handle form submission logic here
     axiosInstance.post('/contact', { email, message })
       .then(response => {
         if (response.data.insertedId) {
@@ -45,14 +44,14 @@ const Contact = () => {
             className="bg-base-200 border border-primary/10 rounded-2xl p-6 shadow-md"
           >
             <h3 className="text-xl font-semibold text-primary mb-4">Our Address</h3>
-            <p className="text-secondary font-openSans mb-2">
+            <p className="mb-2">
               Employee Flow HQ  
               <br />
               123 Business Avenue  
               <br />
               Level 4, Dhaka 1207, Bangladesh  
             </p>
-            <p className="text-secondary font-openSans">
+            <p className="">
               Email: <span className="text-primary">contact@employeeflow.com</span>
             </p>
           </motion.div>
