@@ -7,6 +7,10 @@ Easily manage employees, HR tasks, payroll, and analytics—all in one place.
 
 ---
 ## Admin  Account 
+--
+admin@gmail.com
+123456Aa@
+--
 ## 📑 Table of Contents
 
 - [Live Demo](#-employee-flow)
